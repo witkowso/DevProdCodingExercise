@@ -6,24 +6,26 @@ import java.nio.file.Path;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/**
+ *
+ * @author Olivia Witkowski
+ *
+ */
 
-
-class Tree {
+public class Tree {
 
     private Node rootNode;
-    private LinkedHashMap dependencyNodes = new LinkedHashMap();
+    private final LinkedHashMap dependencyNodes = new LinkedHashMap();
 
-    public void loadFileContents(Path file) {
-
+    public void loadFileContents(Path file, String delim) {
 
         // loop through each line in file
         try (InputStream in = Files.newInputStream(file);
-
-             BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
+            BufferedReader reader = new BufferedReader(new InputStreamReader(in))) {
             String line;
 
             while ((line = reader.readLine()) != null) {
-                parseLineIntoNodes(line, "->");
+                parseLineIntoNodes(line, delim);
             }
 
             // add to rootNode

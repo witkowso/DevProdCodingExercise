@@ -5,7 +5,7 @@ import java.io.IOException;
 import java.util.*;
 
 
-class Node {
+public class Node {
 
     private final String name;
     boolean root = true;
@@ -52,7 +52,7 @@ class Node {
 
     private boolean cyclicDependencyCheck(List<String> visited, int depth) {
         if (visited.size() > depth) {
-            LinkedList truncated = new LinkedList(visited.subList(0, depth));
+            LinkedList truncated = new LinkedList<>(visited.subList(0, depth));
             visited.clear();
             visited.addAll(truncated);
         }

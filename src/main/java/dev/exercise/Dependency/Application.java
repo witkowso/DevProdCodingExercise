@@ -4,6 +4,11 @@ import java.io.BufferedWriter;
 import java.io.OutputStreamWriter;
 import java.nio.file.Paths;
 
+/**
+ * Main Application that accepts a file name (with path) and displays a dependency hierarchy
+ * @author Olivia Witkowski
+ *
+ */
 
 class Application {
 
@@ -18,7 +23,7 @@ class Application {
 
         System.out.printf("Reading file \"%s\"...\n", args[0]);
 
-        dependencyTree.loadFileContents(Paths.get(args[0]));
+        dependencyTree.loadFileContents(Paths.get(args[0]), "->");
 
         dependencyTree.render(new BufferedWriter(new OutputStreamWriter(System.out)));
 
